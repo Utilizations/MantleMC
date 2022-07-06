@@ -3,7 +3,7 @@ const config = require("../../../../Config");
 const db = require("../../../Structures/Models/WarningDB");
 
 module.exports = {
-    name: "checkWarn",
+    name: "checkHist",
     userPermissions: ["MANAGE_MESSAGES"],
     run: async(client, message, args, container) => {
         Target = message.mentions.members.size === 1 ? message.mentions.members.first() : message.guild.members.cache.get(args[0])
@@ -18,18 +18,18 @@ module.exports = {
                 if(data) {
                     message.channel.send({embeds: [new Discord.MessageEmbed()
                     .setColor(config.serverColor)
-                    .setAuthor({name: `${config.serverName} Warnings`, iconURL: config.serverIcon})
+                    .setAuthor({name: `${config.serverName} Punishments`, iconURL: config.serverIcon})
                     .setThumbnail(config.serverIcon)
                     .setDescription(`${data.Content.map(
-                        (w, i) => `**ID**: ${i + 1}\n **By**: ${w.ExecuterTag}\n**Date**: ${w.Date}\n**Reason**: ${w.Reason}\n**Evidence**: ${w.Evidence}
+                        (w, i) => `**ID**: ${i + 1}\n **Type**: ${w.Punishment}\n **By**: ${w.ExecuterTag}\n**Date**: ${w.Date}\n**Reason**: ${w.Reason}\n**Evidence**: ${w.Evidence}
                         \n`
                     ).join(" ")}`)]})
                 }else {
                     message.channel.send({embeds: [new Discord.MessageEmbed()
                     .setColor(config.serverColor)
-                    .setAuthor({name: `${config.serverName} Warnings`, iconURL: config.serverIcon})
+                    .setAuthor({name: `${config.serverName} Punishments`, iconURL: config.serverIcon})
                     .setThumbnail(config.serverIcon)
-                    .setDescription(`${Target.user.tag} | ||${Target.id}|| has no warnings.`)]});
+                    .setDescription(`${Target.user.tag} | ||${Target.id}|| has no Punishments.`)]});
                 }
             })
         }

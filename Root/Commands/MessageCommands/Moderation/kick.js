@@ -3,8 +3,8 @@ const config = require("../../../../Config");
 const db = require("../../../Structures/Models/WarningDB");
 
 module.exports = {
-    name: "warn",
-    userPermissions: ["MANAGE_MESSAGES"],
+    name: "kick",
+    userPermissions: ["KICK_MEMBERS"],
     run: async(client, message, args, container) => {
         Target = message.mentions.members.size === 1 ? message.mentions.members.first() : message.guild.members.cache.get(args[0])
         const Reason = args.slice(1).join(" ");
@@ -12,10 +12,10 @@ module.exports = {
 
         message.delete()
         if (!Target) {
-            message.channel.send({embeds: [new discord.MessageEmbed().setDescription("This command has been entered incorrectly. Please use **warn [@user] [reason]**")]})
+            message.channel.send({embeds: [new discord.MessageEmbed().setDescription("This command has been entered incorrectly. Please use **kick [@user] [reason]**")]})
         }
         if (!Reason) {
-            message.channel.send({embeds: [new discord.MessageEmbed().setDescription("This command has been entered incorrectly. Please use **warn [@user] [reason]**")]})
+            message.channel.send({embeds: [new discord.MessageEmbed().setDescription("This command has been entered incorrectly. Please use **kick [@user] [reason]**")]})
         }else {
             db.findOne({ GuildID: message.guild.id, UserID: Target.id, UserTag: Target.user.tag }, async (err, data) => {
                 if(err) throw err;
@@ -28,7 +28,7 @@ module.exports = {
                             {
                                 ExecuterID: message.author.id,
                                 ExecuterTag: message.author.tag,
-                                Punishment: "Warn",
+                                Punishment: "Kick",
                                 Reason: Reason,
                                 Date: WarnDate
                             }
@@ -38,7 +38,7 @@ module.exports = {
                     const obj = {
                         ExecuterID: message.author.id,
                         ExecuterTag: message.author.tag,
-                        Punishment: "Warn",
+                        Punishment: "Kick",
                         Reason: Reason,
                         Date: WarnDate
                     }
@@ -49,19 +49,20 @@ module.exports = {
     
             message.channel.send({embeds: [new discord.MessageEmbed()
             .setColor(config.serverColor)
-            .setAuthor({name: `${config.serverName} Warnings`, iconURL: config.serverIcon})
+            .setAuthor({name: `${config.serverName} Punishments`, iconURL: config.serverIcon})
             .setThumbnail(config.serverIcon)
-            .setDescription(`Warning Added: ${Target.user.tag} | ||${Target.id}}||\n**Reason**: ${Reason}`)]});
+            .setDescription(`Punishment Added: ${Target.user.tag} | ||${Target.id}}||\n**Reason**: ${Reason}`)]});
     
             log = message.guild.channels.cache.get(config.tTranscripts)
             const log1 = new discord.MessageEmbed()
-            .setAuthor({name: "Member Warned", iconURL: config.serverIcon})
+            .setAuthor({name: "Member Kicked", iconURL: config.serverIcon})
             .setThumbnail(config.serverIcon)
             .setColor(config.serverColor)
             .setDescription(`
-            ${message.author} Has warned ${Target}`)
+            ${message.author} Has kicked ${Target}`)
             .addField("Reason:", `${Reason}`, true)
             log.send({embeds: [log1]})
+            Target.kick(reason)
         }
         
 
