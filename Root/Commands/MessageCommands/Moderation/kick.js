@@ -13,9 +13,6 @@ module.exports = {
         message.delete()
         if (!Target) {
             message.channel.send({embeds: [new discord.MessageEmbed().setDescription("This command has been entered incorrectly. Please use **kick [@user] [reason]**")]})
-        }
-        if (!Reason) {
-            message.channel.send({embeds: [new discord.MessageEmbed().setDescription("This command has been entered incorrectly. Please use **kick [@user] [reason]**")]})
         }else {
             db.findOne({ GuildID: message.guild.id, UserID: Target.id, UserTag: Target.user.tag }, async (err, data) => {
                 if(err) throw err;

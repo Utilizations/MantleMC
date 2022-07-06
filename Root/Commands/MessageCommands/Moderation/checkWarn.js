@@ -21,7 +21,7 @@ module.exports = {
                     .setAuthor({name: `${config.serverName} Punishments`, iconURL: config.serverIcon})
                     .setThumbnail(config.serverIcon)
                     .setDescription(`${data.Content.map(
-                        (w, i) => `**ID**: ${i + 1}\n **Type**: ${w.Punishment}\n **By**: ${w.ExecuterTag}\n**Date**: ${w.Date}\n**Reason**: ${w.Reason}\n**Evidence**: ${w.Evidence}
+                        (w, i) => `**ID**: ${i + 1}\n **Type**: ${w.Punishment}\n **By**: ${w.ExecuterTag}\n**Date**: ${w.Date}\n**Reason**: ${w.Reason}
                         \n`
                     ).join(" ")}`)]})
                 }else {
