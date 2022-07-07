@@ -3,8 +3,6 @@ const Discord = require("discord.js");
 
 module.exports = {
     name : 'verify',
-    returnNoErrors: true,
-    ownerOnly: true,
     run : async(client, interaction, container) => {
         interaction.member.roles.add(Config.memberRole)
         interaction.member.send({embeds: [new Discord.MessageEmbed().setDescription(`You are now verified for ${Config.serverName}`).setColor(`${Config.serverColor}`).setThumbnail(`${Config.serverIcon}`)]})
