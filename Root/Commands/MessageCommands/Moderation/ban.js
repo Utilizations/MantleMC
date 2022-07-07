@@ -59,7 +59,7 @@ module.exports = {
             ${message.author} Has banned ${Target}`)
             .addField("Reason:", `${Reason}`, true)
             log.send({embeds: [log1]})
-            Target.ban(reason)
+            Target.ban(Reason)
         }
         
 

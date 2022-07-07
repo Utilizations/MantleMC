@@ -59,7 +59,7 @@ module.exports = {
             ${message.author} Has kicked ${Target}`)
             .addField("Reason:", `${Reason}`, true)
             log.send({embeds: [log1]})
-            Target.kick(reason)
+            Target.kick(Reason)
         }
         
 
