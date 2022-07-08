@@ -10,7 +10,7 @@ module.exports = {
         interaction.channel.setParent("991875970829140089")
         interaction.channel.permissionOverwrites.edit(config.staffRole , { VIEW_CHANNEL: false, SEND_MESSAGES: false});
         interaction.channel.permissionOverwrites.edit(interaction.member.id , { VIEW_CHANNEL: true, SEND_MESSAGES: true});
-        interaction.channel.permissionOverwrites.edit(config.everyoneRole , { VIEW_CHANNEL: false, SEND_MESSAGES: false});
+        interaction.channel.permissionOverwrites.edit(guild.roles.everyone , { VIEW_CHANNEL: false, SEND_MESSAGES: false});
 
 
         db.findOne({ GuildID: interaction.guild.id, UserID: interaction.member.id }, async (err, data) => {

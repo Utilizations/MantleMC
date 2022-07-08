@@ -1,19 +1,19 @@
 module.exports = {
-    prefix: ["="],
+    prefix: [";"],
     developers: ["722432254399479829"],
-    token: "OTkwNzI1OTYyMzMxMjE4MDMw.GZxlik.5a4hVmexmiD8beJ2466eMKU3dkWXKEXgvpcd0c",
-    database: "mongodb+srv://bot1:bot1@bot.jngmcna.mongodb.net/?retryWrites=true&w=majority",
+    token: "OTk0MzYyMDg0OTQ5MjM3ODQw.GAEOJd.JZu38BIJRganmF0-t_GEbhmM0Yu9OiHWs8Yd3Q",
+    database: "mongodb+srv://bot:bot@bot.jeyqkra.mongodb.net/?retryWrites=true&w=majority",
 
     spacer1: "---------------------------------------------------------------------------------------------",
 
-    serverName: "TangoMC",
-    serverIcon: "https://i.imgur.com/TgPeoIm.png",
+    serverName: "MantleMC",
+    serverIcon: "https://i.imgur.com/KNg5vES.png",
     serverBanner: "https://i.imgur.com/plkRLqX.png",
-    serverIp: "play.tangomc.xyz",
-    serverColor: "#30c219",
+    serverIp: "Mantle.mc.net",
+    serverColor: "#7700ff",
 
-    staffChanges: "987387587167682595",
-    islandsPlaying: "987108943895613484",
+    staffChanges: "991875969889599508",
+    islandsPlaying: "994377958687002674",
 
     spacer1: "---------------------------------------------------------------------------------------------",
 
@@ -31,7 +31,7 @@ module.exports = {
     
     *Note: Average response time is 4 hours*`,
     tCategory: "990728017699557476",
-    tTranscripts: "987387587167682596",
+    tTranscripts: "991875969889599508",
 
     spacer1: "---------------------------------------------------------------------------------------------",
 
@@ -42,15 +42,15 @@ module.exports = {
 
     spacer1: "---------------------------------------------------------------------------------------------",
 
-    staffRole: "990728433027936276",
+    staffRole: "991875967146545223",
     everyoneRole: "987387586542714880",
-    memberRole: "987387586542714881",
+    memberRole: "988989137539461220",
 
     spacer1: "---------------------------------------------------------------------------------------------",
 
-    serverAnnounce: "987387586559479832",
-    serverChangeLogs: "987387586559479834",
-    welcomeChannel: "987387587167682596",
+    serverAnnounce: "994442577946366042",
+    serverChangeLogs: "988990882491539587",
+    welcomeChannel: "994011630461522010",
 
     spacer1: "---------------------------------------------------------------------------------------------",
     spacer1: "---------------------------------------------------------------------------------------------",
