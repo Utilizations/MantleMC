@@ -8,7 +8,7 @@ module.exports = {
     run: async(client, message, args, container) => {
         const channel = message.channel
 
-        channel.permissionOverwrites.edit(message.channel.guild.roles.everyone, { SEND_MESSAGES: true });
+        channel.permissionOverwrites.edit("988989137539461220", { SEND_MESSAGES: true });
 
         const embed =  new Discord.MessageEmbed()
         .setDescription(`${channel} has been Unlocked. Everyone may type in here.`)
