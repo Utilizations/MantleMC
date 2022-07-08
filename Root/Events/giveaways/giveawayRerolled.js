@@ -5,7 +5,7 @@ module.exports = {
     winners.forEach((member) => {
       member.send({
         embeds: [new Discord.MessageEmbed()
-          .setTitle(`🎁 Let's goo! We Have A New Winner`)
+          .setTitle(`🎁 Let's gooo! We Have A New Winner`)
           .setColor("#2F3136")
           .setDescription(`
           Hello you have won the giveaway for **${giveaway.prize}**!

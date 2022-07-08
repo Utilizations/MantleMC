@@ -7,7 +7,7 @@ module.exports = {
     .setColor("#2F3136")
     .setTitle("Entry Approved! | You have a chance to win!!")
     .setDescription(
-      `Your entry to [This Giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) has been approved!\n> **Giveaway winners:** \`${giveaway.winnerCount}\``
+      `Your entry into [This Giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) has been approved!\n> **Giveaway winners:** \`${giveaway.winnerCount}\``
     )
     .setFooter("Powered by MantleMC")
     .setTimestamp()
