@@ -7,7 +7,7 @@ module.exports = {
 
     run: async(client, message, args, container) => {
         message.delete()
-        message.guild.channels.create("➤ Pending Response", {type: "category"})
+        message.guild.channels.create("➤ Pending Response", {type: "GUILD_CATEGORY"})
 
     }
 }
