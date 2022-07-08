@@ -22,7 +22,7 @@ module.exports = {
             interaction.channel.send({embeds: [new Discord.MessageEmbed().setDescription("Please answer the questions so our team can help you quicker.").setColor(Config.serverColor)]})
             channel.send({embeds: [new Discord.MessageEmbed()
                 .setDescription(questions.firstQuestion)
-                .setColor(config.serverColor)]})
+                .setColor(Config.serverColor)]})
                 .then(msg => {
                 const filter = m => m.author.id === interaction.member.id
                channel.awaitMessages({filter, max: 1, time: 1000000
