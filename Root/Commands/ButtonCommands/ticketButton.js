@@ -11,7 +11,7 @@ module.exports = {
 
         if(!category) async (err) => {
             await guild.channels.create("➤ Pending Response", { type: "GUILD_CATEGORY" });
-            if (err) throw err
+            console.log(err)
         }; else {
             await guild.channels.create(`${member}`, {
                 type: "GUILD_TEXT",
