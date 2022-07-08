@@ -11,6 +11,7 @@ module.exports = {
 
         if(!category) {
             guild.channels.create("➤ Pending Response", { type: "GUILD_CATEGORY" });
+            interaction.reply("Category doesnt exist")
         } else {
             await guild.channels.create(`${member}`, {
                 type: "GUILD_TEXT",
