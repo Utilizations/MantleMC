@@ -10,7 +10,7 @@ module.exports = {
         const category = guild.channels.cache.find(c => c.name == "➤ Pending Response" && c.type == "category")
 
         if(!category) {
-            guild.channels.create("➤ Pending Response", { type: "GUILD_CATEGORY" });
+            await guild.channels.create("➤ Pending Response", { type: "GUILD_CATEGORY" });
             interaction.reply("Category doesnt exist")
         } else {
             await guild.channels.create(`${member}`, {
