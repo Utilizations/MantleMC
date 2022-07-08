@@ -1,4 +1,5 @@
 const Discord = require("discord.js")
+const config = require("../../../Config")
 module.exports = {
   async execute(giveaway, reactor, messageReaction) {
     let approved =  new Discord.MessageEmbed()
