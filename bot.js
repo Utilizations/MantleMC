@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const config = require("./Config");
+const fs = require("fs")
 const path = __dirname;
 const client = new Discord.Client({
     intents: [
