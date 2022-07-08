@@ -10,7 +10,7 @@ module.exports = {
           .setDescription(`
           Hello you have won the giveaway for **${giveaway.prize}**!
 
-          Please open a ticket in the **${guild.name}** discord to claim your prize.
+          Please open a ticket in the **MantleMC** discord to claim your prize.
           `)
           .setTimestamp()
           .setThumbnail(config.serverIcon)
