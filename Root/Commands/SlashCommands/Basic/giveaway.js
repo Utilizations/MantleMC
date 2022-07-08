@@ -112,6 +112,12 @@ module.exports = {
                         giveaway: "🎉 | **Giveaway Started** | 🎉",
                         giveawayEnded: "🔐 | **Giveaway Ended** | 🔐",
                         winMessage: `🎉 | Congratulations, {winners} You have won the giveaway for **{this.prize}**!\nMake a ticket to claim!`,
+                        lastChance: {
+                            enabled: true,
+                            content: '⚠️ **LAST CHANCE TO ENTER !** ⚠️',
+                            threshold: 5000,
+                            embedColor: '#30c219' 
+                        }
                     }
                 }).then (async () => {
                     successEmbed.setDescription ("Giveaway has successfully started.")
@@ -120,11 +126,11 @@ module.exports = {
                     successEmbed.setDescription (`There was an error!\n ${err}`)
                     return interaction.reply({embeds: [errorEmbed], ephemeral: true});
                 })
-                log1 = interaction.guild.channels.cache.get(config.log_channel)
+                log1 = interaction.guild.channels.cache.get(config.tTranscripts)
                 const log = new MessageEmbed()
-                .setAuthor({name: "Giveaway", iconURL: config.thumbnail})
-                .setThumbnail(config.thumbnail)
-                .setColor(config.color)
+                .setAuthor({name: "Giveaway", iconURL: config.serverIcon})
+                .setThumbnail(config.serverIcon)
+                .setColor(config.serverColor)
                 .setDescription(`
                 ${interaction.member} Has Started a giveaway.`)
                 log1.send({embeds: [log]})
@@ -152,11 +158,11 @@ module.exports = {
 
                         client.giveawaysManager.end(messageId).then(() => {
                             successEmbed.setDescription("Giveaway has successfully ended.");
-                            log1 = interaction.guild.channels.cache.get(config.log_channel)
+                            log1 = interaction.guild.channels.cache.get(config.tTranscripts)
                             const log = new MessageEmbed()
-                            .setAuthor({name: "Giveaway Ended", iconURL: config.thumbnail})
-                            .setThumbnail(config.thumbnail)
-                            .setColor(config.color)
+                            .setAuthor({name: "Giveaway Ended", iconURL: config.serverIcon})
+                            .setThumbnail(config.serverIcon)
+                            .setColor(config.serverColor)
                             .setDescription(`
                             ${interaction.member} Has Ended the giveaway`)
                             log1.send({embeds: [log]})
@@ -173,11 +179,11 @@ module.exports = {
 
                         client.giveawaysManager.pause(messageId).then(() => {
                             successEmbed.setDescription("Giveaway has successfully paused.");
-                            log1 = interaction.guild.channels.cache.get(config.log_channel)
+                            log1 = interaction.guild.channels.cache.get(config.tTranscripts)
                             const log = new MessageEmbed()
-                            .setAuthor({name: "Giveaway Paused", iconURL: config.thumbnail})
-                            .setThumbnail(config.thumbnail)
-                            .setColor(config.color)
+                            .setAuthor({name: "Giveaway Paused", iconURL: config.serverIcon})
+                            .setThumbnail(config.serverIcon)
+                            .setColor(config.serverColor)
                             .setDescription(`
                             ${interaction.member} Has Paused the giveaway`)
                             log1.send({embeds: [log]})
@@ -194,11 +200,11 @@ module.exports = {
 
                         client.giveawaysManager.unpause(messageId).then(() => {
                             successEmbed.setDescription("Giveaway has successfully unpaused.");
-                            log1 = interaction.guild.channels.cache.get(config.log_channel)
+                            log1 = interaction.guild.channels.cache.get(config.tTranscripts)
                             const log = new MessageEmbed()
-                            .setAuthor({name: "Giveaway Unpaused", iconURL: config.thumbnail})
-                            .setThumbnail(config.thumbnail)
-                            .setColor(config.color)
+                            .setAuthor({name: "Giveaway Unpaused", iconURL: config.serverIcon})
+                            .setThumbnail(config.serverIcon)
+                            .setColor(config.serverColor)
                             .setDescription(`
                             ${interaction.member} Has Unpaused the giveaway`)
                             log1.send({embeds: [log]})
@@ -215,11 +221,11 @@ module.exports = {
 
                         client.giveawaysManager.reroll(messageId).then(() => {
                             successEmbed.setDescription("Giveaway has successfully reroll.");
-                            log1 = interaction.guild.channels.cache.get(config.log_channel)
+                            log1 = interaction.guild.channels.cache.get(config.tTranscripts)
                             const log = new MessageEmbed()
-                            .setAuthor({name: "Giveaway Rerolled", iconURL: config.thumbnail})
-                            .setThumbnail(config.thumbnail)
-                            .setColor(config.color)
+                            .setAuthor({name: "Giveaway Rerolled", iconURL: config.serverIcon})
+                            .setThumbnail(config.serverIcon)
+                            .setColor(config.serverColor)
                             .setDescription(`
                             ${interaction.member} Has Rerolled the giveaway`)
                             log1.send({embeds: [log]})
@@ -235,11 +241,11 @@ module.exports = {
 
                         client.giveawaysManager.delete(messageId).then(() => {
                             successEmbed.setDescription("Giveaway has successfully deleted.");
-                            log1 = interaction.guild.channels.cache.get(config.log_channel)
+                            log1 = interaction.guild.channels.cache.get(config.tTranscripts)
                             const log = new MessageEmbed()
-                            .setAuthor({name: "Giveaway Deleted", iconURL: config.thumbnail})
-                            .setThumbnail(config.thumbnail)
-                            .setColor(config.color)
+                            .setAuthor({name: "Giveaway Deleted", iconURL: config.serverIcon})
+                            .setThumbnail(config.serverIcon)
+                            .setColor(config.serverColor)
                             .setDescription(`
                             ${interaction.member} Has Deleted the giveaway`)
                             log1.send({embeds: [log]})
