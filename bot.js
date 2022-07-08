@@ -31,7 +31,30 @@ client.commands.contextMenus = new Discord.Collection();
 client.commands.slashCommands = new Discord.Collection();
 client.commands.buttonCommands = new Discord.Collection();
 client.commands.selectMenus = new Discord.Collection();
-require("./Root/Structures/Systems/GiveawaySys")(client);  
+const { GiveawaysManager } = require("discord-giveaways");
+client.giveawaysManager = new GiveawaysManager(client, {
+  storage: "./giveaways.json",
+  default: {
+    botsCanWin: false,
+    embedColor: "#b59900",
+    embedColorEnd: "#b59900",
+    reaction: "🎁",
+    lastChance: {
+      enabled: false,
+      content: `🛑 **Last chance to enter** 🛑`,
+      threshold: 5000,
+      embedColor: '#FF0000'
+    }
+  }
+});
+fs.readdir("./events/giveaways", (_err, files) => {
+    files.forEach((file) => {
+      if (!file.endsWith(".js")) return;
+      const event = require(`./events/giveaways/${file}`);
+      let eventName = file.split(".")[0];
+      client.giveawaysManager.on(eventName, (...file) => event.execute(...file, client)), delete require.cache[require.resolve(`./events/giveaways/${file}`)];
+    })
+  })
 const Handler = require(`${path}/Root/Structures/Handlers/Handler`);
 await Handler.loadMessageCommands(client, path);
 await Handler.loadEvents(client);
