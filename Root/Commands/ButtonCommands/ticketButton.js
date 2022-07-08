@@ -9,10 +9,10 @@ module.exports = {
 
         const category = guild.channels.cache.find(c => c.name == "➤ Pending Response" && c.type == "category")
 
-        if(!category) {
+        if(!category) async (err) => {
             await guild.channels.create("➤ Pending Response", { type: "GUILD_CATEGORY" });
-            interaction.reply("Category doesnt exist")
-        } else {
+            if (err) throw err
+        }; else {
             await guild.channels.create(`${member}`, {
                 type: "GUILD_TEXT",
                 parent: category,
