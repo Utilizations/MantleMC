@@ -6,18 +6,19 @@ module.exports = {
     .setColor("#2F3136")
     .setTitle("Entry Approved! | You have a chance to win!!")
     .setDescription(
-      `Your entry to [This Giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) has been approved!\n<:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548>\n> **Giveaway for:** \`${giveaway.prize}\`\n<:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548>\n> **Giveaway winners:** \`${giveaway.winnerCount}\``
+      `Your entry to [This Giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) has been approved!\n> **Giveaway winners:** \`${giveaway.winnerCount}\``
     )
-    .setFooter("Powered by Azury")
+    .setFooter("Powered by MantleMC")
     .setTimestamp()
    let denied =  new Discord.MessageEmbed()
     .setTimestamp()
     .setColor("#2F3136")
     .setTitle(":x: Entry Denied | Databse Entry Not Found & Returned!")
     .setDescription(
-      `Your entry to [This Giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) has been denied, please review the requirements to the giveaway properly.\n<:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548>\n> **Giveaway for:** \`${giveaway.prize}\`\n<:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548>\n> **Giveaway winners:** \`${giveaway.winnerCount}\``
+      `Your entry to [This Giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) has been denied, please review the requirements to the giveaway properly.\n> **Giveaway for:** \`${giveaway.prize}\`\n> **Giveaway winners:** \`${giveaway.winnerCount}\``
     )
-    .setFooter("Powered by Azury")
+    .setThumbnail(config.serverIcon)
+    .setFooter("Powered by MantleMC")
 
     let client = messageReaction.message.client
     if (reactor.user.bot) return;

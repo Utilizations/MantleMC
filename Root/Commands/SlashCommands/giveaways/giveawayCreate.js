@@ -177,7 +177,7 @@ let bnRole;
   drawing:  `*React with 🎁 to participate!*\n\`⏲️\` Ends: **{timestamp}**\n\`👑\` Hosted by: ${interaction.user}\n\`👤\` WinnersCount: ${parseInt(giveawayWinnerCount)}`,
   inviteToParticipate: ``,
   winMessage: "Congratulations, {winners}! You won **{this.prize}**!",
-  embedFooter: "Powered by Azury",
+  embedFooter: "Powered by MantleMC",
   noWinner: `*Giveaway cancelled, no valid participations.*\n\`👑\` Hosted by: ${interaction.user}\n\`👤\` WinnersCount: ${parseInt(giveawayWinnerCount)}`,
   hostedBy: "\`👑\` Hosted by: {this.hostedBy}",
   winners: `*~~React with 🎁 to participate!~~*\n\`⏲️\` Ended: **Now**\n\`👑\` Hosted by: ${interaction.user}\n\`👤\` Winners:`,

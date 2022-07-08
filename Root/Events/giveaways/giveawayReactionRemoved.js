@@ -7,9 +7,10 @@ module.exports = {
         .setTitle('❓ Hold Up Did You Just Remove a Reaction From A Giveaway?')
         .setColor("#2F3136")
         .setDescription(
-          `Your entery to [This Giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) was recorded but you un-reacted.\n<:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548>\n> **Giveaway for:** \`${giveaway.prize}\`\n<:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548><:5102blurpleline:959931086257942548>\n> **Giveaway winners:** \`${giveaway.winnerCount}\``
+          `Your entery to [This Giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) was recorded but you un-reacted.\n> **Giveaway for:** \`${giveaway.prize}\`\n> **Giveaway winners:** \`${giveaway.winnerCount}\``
         )
-        .setFooter("Think It was a mistake? Go react again | Powered by Azury.live")
+        .setThumbnail(config.serverIcon)
+        .setFooter("Think It was a mistake? Go react again | Powered by MantleMC")
       ]
     }).catch(e => {})
 
