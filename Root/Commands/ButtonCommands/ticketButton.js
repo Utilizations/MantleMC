@@ -7,7 +7,7 @@ module.exports = {
         const { guild, member} = interaction;
         const ID = Math.floor(Math.random() * 90000) + 10000;
 
-        const category = guild.channels.cache.find(c => c.name == "➤ Pending Response" && c.type == "category")
+        const category = "994988311028441088"
         await guild.channels.create(`${member}`, {
             type: "GUILD_TEXT",
             parent: category,
