@@ -48,12 +48,12 @@ client.giveawaysManager = new GiveawaysManager(client, {
     }
   }
 });
-fs.readdir("./events/giveaways", (_err, files) => {
+fs.readdir("./Root/Events/giveaways", (_err, files) => {
     files.forEach((file) => {
       if (!file.endsWith(".js")) return;
-      const event = require(`./events/giveaways/${file}`);
+      const event = require(`./Root/Events/giveaways/${file}`);
       let eventName = file.split(".")[0];
-      client.giveawaysManager.on(eventName, (...file) => event.execute(...file, client)), delete require.cache[require.resolve(`./events/giveaways/${file}`)];
+      client.giveawaysManager.on(eventName, (...file) => event.execute(...file, client)), delete require.cache[require.resolve(`./Root/Events/giveaways/${file}`)];
     })
   })
 const Handler = require(`${path}/Root/Structures/Handlers/Handler`);
