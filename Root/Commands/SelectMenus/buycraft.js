@@ -9,6 +9,7 @@ module.exports = {
 
 
         interaction.channel.setName(`buycraft-${member.displayName}`)
+        interaction.channel.setParent("991875970829140089")
         interaction.channel.permissionOverwrites.edit(interaction.member.id, { SEND_MESSAGES: true, ADD_REACTIONS: false });
 
         const channel = interaction.channel
@@ -59,9 +60,8 @@ module.exports = {
                             .setThumbnail(Config.serverIcon)
                             .setDescription(`Thank you for creating a ticket, a member of the support team will be with you shortly.
                             
-                            **Category:**
-                            Buycraft Support
-                            __**---------------------**__
+                            **Category:** Buycraft Support
+                            
                              ${questions.firstQuestion}
                             → Answer: **${msg1}**
                              ${questions.secondQuestion}

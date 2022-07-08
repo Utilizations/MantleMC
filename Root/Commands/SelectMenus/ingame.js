@@ -9,6 +9,7 @@ module.exports = {
 
 
         interaction.channel.setName(`ingame-${member.displayName}`)
+        interaction.channel.setParent("991875970829140089")
         interaction.channel.permissionOverwrites.edit(interaction.member.id, { SEND_MESSAGES: true, ADD_REACTIONS: false });
 
         const channel = interaction.channel
@@ -50,9 +51,8 @@ module.exports = {
                             .setThumbnail(Config.serverIcon)
                             .setDescription(`Thank you for creating a ticket, a member of the support team will be with you shortly.
                             
-                            **Category:**
-                            In-game Support
-                            __**---------------------**__
+                            **Category:** In-game Support
+
                              ${questions.firstQuestion}
                             → Answer: **${msg1}**
                              ${questions.secondQuestion}
