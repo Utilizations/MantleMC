@@ -8,7 +8,7 @@ module.exports = {
 
     serverName: "MantleMC",
     serverIcon: "https://i.imgur.com/KNg5vES.png",
-    serverBanner: "https://i.imgur.com/plkRLqX.png",
+    serverBanner: "https://i.imgur.com/9XDqNrF.png",
     serverIp: "Mantle.mc.net",
     serverColor: "#7700ff",
 
