@@ -86,9 +86,8 @@ module.exports = {
      * @param {Client} client 
      */
      run: async(interaction, client) => {
-        const { options } = interaction;
 
-        const Sub = options.getSubcommand();
+        const Sub = interaction.options.getSubcommand();
 
         const errorEmbed = new MessageEmbed()
         .setColor("RED")
