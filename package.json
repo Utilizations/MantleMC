@@ -23,6 +23,7 @@
     "chalk": "^4.1.2",
     "child_process": "^1.0.2",
     "cli-box": "^6.0.10",
+    "discord-giveaways": "^5.2.2",
     "discord-html-transcripts": "^2.5.8",
     "discord.js": "^13.8.0",
     "discord.js-poll": "^1.2.1",
