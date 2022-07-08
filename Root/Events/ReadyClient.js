@@ -7,7 +7,7 @@ module.exports = {
     name: "ready",
     once: true,
     run: async(client) => {
-        client.user.setActivity('play.tangomc.xyz.', {
+        client.user.setActivity('MantleMC.net.', {
             type: `WATCHING`,
         })
         const ClientBox = new Box({
