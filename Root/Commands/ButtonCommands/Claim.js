@@ -4,6 +4,7 @@ const db = require("../../Structures/Models/ClaimDB");
 
 module.exports = {
     name : 'claim',
+    userPermissions: ["MANAGE_MESSAGES"],
     run : async(client, interaction, container) => {
         const { guild, member} = interaction;
         interaction.channel.send({embeds: [new Discord.MessageEmbed().setDescription(`${interaction.member} has claimed this ticket.`)]})
