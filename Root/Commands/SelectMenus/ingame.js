@@ -9,7 +9,6 @@ module.exports = {
 
 
         interaction.channel.setName(`ingame-${member.displayName}`)
-        interaction.channel.setParent("991875970829140089")
         interaction.channel.permissionOverwrites.edit(interaction.member.id, { SEND_MESSAGES: true, ADD_REACTIONS: false });
 
         const channel = interaction.channel
