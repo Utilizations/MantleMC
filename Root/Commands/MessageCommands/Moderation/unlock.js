@@ -8,7 +8,7 @@ module.exports = {
     run: async(client, message, args, container) => {
         const channel = message.channel
 
-        channel.updateOverwrite(message.channel.guild.roles.everyone, { SEND_MESSAGES: true });
+        channel.permissionOverwrites.edit(message.channel.guild.roles.everyone, { SEND_MESSAGES: true });
 
         const embed =  new Discord.MessageEmbed()
         .setDescription(`${channel} has been Unlocked. Everyone may type in here.`)
