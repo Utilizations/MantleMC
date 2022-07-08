@@ -13,15 +13,5 @@ module.exports = {
             else if (!message.guild) return;
             else loadCommandOptions(client, message, command, false)
         })
-
-        const regex = /(https?:\/\/)?(www\.)?(discord\.(gg|io|me|li|club)|discordapp\.com\/invite|discord\.com\/invite)\/.+[a-z]/gi;
-
-        if (!message.member.roles.cache.has('991875967146545223')) {  //replace the Xs with the admin role ID
-            if (regex.exec(message.content)) {
-            await message.channel.send(
-                `${message.author} Do not send discord invites, next time will be a ban.`
-            )
-            }
-        } 
     }
 }
