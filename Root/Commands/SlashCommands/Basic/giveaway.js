@@ -111,6 +111,12 @@ module.exports = {
                     messages : {
                         giveaway: "🎉 | **Giveaway Started** | 🎉",
                         giveawayEnded: "🔐 | **Giveaway Ended** | 🔐",
+                        drawing: '⏰: {timestamp}',
+                        dropMessage: 'Be the first to react with 🎉 !',
+                        embedFooter: '{this.winnerCount} winner(s)',
+                        hostedBy: 'Hosted by: {this.hostedBy}',
+                        winners: 'Winner(s):',
+                        endedAt: 'Ended at',
                         winMessage: `🎉 | Congratulations, {winners} You have won the giveaway for **{this.prize}**!\nMake a ticket to claim!`,
                         lastChance: {
                             enabled: true,
