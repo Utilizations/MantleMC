@@ -7,7 +7,7 @@ module.exports = {
         const { guild, member} = interaction;
         const ID = Math.floor(Math.random() * 90000) + 10000;
 
-        const category = server.channels.find(c => c.name == "➤ Pending Response" && c.type == "category")
+        const category = guild.channels.find(c => c.name == "➤ Pending Response" && c.type == "category")
 
         if(!category) {
             guild.channels.create("➤ Pending Response", { type: "GUILD_CATEGORY" });
