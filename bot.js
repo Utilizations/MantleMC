@@ -31,7 +31,7 @@ client.commands.contextMenus = new Discord.Collection();
 client.commands.slashCommands = new Discord.Collection();
 client.commands.buttonCommands = new Discord.Collection();
 client.commands.selectMenus = new Discord.Collection();
-    
+require("./Root/Structures/Systems/GiveawaySys")(client);  
 const Handler = require(`${path}/Root/Structures/Handlers/Handler`);
 await Handler.loadMessageCommands(client, path);
 await Handler.loadEvents(client);
