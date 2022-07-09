@@ -5,7 +5,6 @@ module.exports = {
   description: "Roasts a user",
   run: async (client, message, args) => {
     let target = message.mentions.members.first() || args.join(" ");
-    let isBotOwner = require("../../config.json").OWNER_ID;
     if (args.length == 0) {
       return message.channel
         .send("Damn, You are trying to roast the air..??")
