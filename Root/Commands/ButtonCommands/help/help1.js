@@ -8,9 +8,7 @@ module.exports = {
         .setColor(config.serverColor)
             .setAuthor({name: `${config.serverName} Help`, iconURL: config.serverIcon})
             .setDescription(`
-            Here are all the General Commands.
-            `)
-            .addField("Suggest", "Make a suggestion to our server.")
+            Here are all the General Commands.\n` + "`" + "suggest" + "`")
             .setThumbnail(config.serverIcon)
             .setImage(config.serverBanner)
 
