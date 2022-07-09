@@ -8,7 +8,7 @@ module.exports = {
         .setColor(config.serverColor)
             .setAuthor({name: `${config.serverName} Help`, iconURL: config.serverIcon})
             .setDescription(`
-            Here are all the General Commands.\n` + "`" + "suggest" + "`")
+            Here are all the General Commands.\n` + "`" + "suggest" + "` "+ "`" + "help" + "`")
             .setThumbnail(config.serverIcon)
             .setImage(config.serverBanner)
 

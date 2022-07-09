@@ -8,9 +8,7 @@ module.exports = {
         .setColor(config.serverColor)
             .setAuthor({name: `${config.serverName} Help`, iconURL: config.serverIcon})
             .setDescription(`
-            Here are all the Ticket Commands.
-            `)
-            .addField("tOptions", "Displays the Ticket Options Menu.")
+            Here are all the Ticket Commands.\n`+ "`" + "tOptions" + "`")
             .setImage(config.serverBanner)
 
             const row = new Discord.MessageActionRow().addComponents(

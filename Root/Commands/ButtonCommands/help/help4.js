@@ -9,8 +9,7 @@ module.exports = {
         .setColor(config.serverColor)
             .setAuthor({name: `${config.serverName} Help`, iconURL: config.serverIcon})
             .setDescription(`
-            Here are all the Staff Commands.
-            `)
+            Here are all the Staff Commands.\n`+ "`" + "warn" + "` "+ "`" + "kick" + "` "+ "`" + "ban" + "` "+ "`" + "checkHist" + "` "+ "`" + "removePunishment" + "` "+ "`" + "clearHist" + "` "+ "`" + "checkClaims" + "` "+ "`" + "purge" + "`\n"+ "Admin Commands\n"+ "`" + "hire" + "` "+ "`" + "demote" + "` "+ "`" + "promote" + "` "+ "`" + "resign" + "` "+ "`" + "setStatus" + "` "+ "`" + "announce" + "` "+ "`" + "registerIs" + "` "+ "`" + "isPlaying" + "`\n"+ "Slash Commands\n"+"`" + "poll" + "` "+ "`" + "createembed" + "`")
             .addField("Warn", "Warns a player.")
             .addField("Kick", "Kicks a player.")
             .addField("Ban", "Bans a player.")
