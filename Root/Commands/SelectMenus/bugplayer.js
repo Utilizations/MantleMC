@@ -38,15 +38,5 @@ module.exports = {
         const forthActionRow = new Discord.MessageActionRow().addComponents(PROBLEM);
 		modal.addComponents(firstActionRow, secondActionRow, thirdActionRow, forthActionRow);
 		await interaction.showModal(modal);
-
-        if(!interaction.isModalSubmit().catch(error => {
-            console.log(error)
-        })) return
-        const reporter = interaction.fields.getTextInputValue('ign')
-        const server = interaction.fields.getTextInputValue('realm')
-        const player = interaction.fields.getTextInputValue('reporter')
-        const description = interaction.fields.getTextInputValue('problem')
-
-        interaction.channel.send(`${reporter} // ${server} // ${player} // ${description}`)
     }
 }
