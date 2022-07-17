@@ -39,7 +39,9 @@ module.exports = {
 		modal.addComponents(firstActionRow, secondActionRow, thirdActionRow, forthActionRow);
 		await interaction.showModal(modal);
 
-        if(!interaction.isModalSubmit()) return
+        if(!interaction.isModalSubmit().catch(error => {
+            console.log(error)
+        })) return
         const reporter = interaction.fields.getTextInputValue('ign')
         const server = interaction.fields.getTextInputValue('realm')
         const player = interaction.fields.getTextInputValue('reporter')
