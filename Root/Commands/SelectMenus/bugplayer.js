@@ -30,7 +30,7 @@ module.exports = {
         const PROBLEM = new Discord.TextInputComponent()
         .setCustomId('problem')
         .setLabel('Please explain the situation')
-        .setStyle('LONG')
+        .setStyle('PARAGRAPH')
 
         const firstActionRow = new Discord.MessageActionRow().addComponents(IGN);
 		const secondActionRow = new Discord.MessageActionRow().addComponents(REALM);
