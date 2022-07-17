@@ -1,5 +1,6 @@
 const Discord = require("discord.js")
 const config = require("../../Config");
+const db = require("../Structures/Models/SuggestDB");
 
 module.exports = {
     name: "interactionCreate",
@@ -11,9 +12,9 @@ module.exports = {
         else if (interaction.isContextMenu()) loadCommandOptions(client, interaction, client.commands.contextMenus.get(interaction.commandName), true, "ContextMenus")
 
         if (!interaction.isModalSubmit()) return;
-        interaction.channel.bulkDelete(2)
-        
+
         if (interaction.customId === 'bugplayer') {
+            interaction.channel.bulkDelete(2)
             const reporter = interaction.fields.getTextInputValue('ign')
             const server = interaction.fields.getTextInputValue('realm')
             const player = interaction.fields.getTextInputValue('reporter')
@@ -48,6 +49,7 @@ module.exports = {
             interaction.reply({embeds: [embed1], components: [row1]})
         }
         if (interaction.customId === 'buycraft') {
+            interaction.channel.bulkDelete(2)
             const reporter = interaction.fields.getTextInputValue('ign')
             const server = interaction.fields.getTextInputValue('realm')
             const description = interaction.fields.getTextInputValue('problem')
@@ -80,6 +82,7 @@ module.exports = {
             interaction.reply({embeds: [embed2], components: [row2]})
         }
         if (interaction.customId === 'general') {
+            interaction.channel.bulkDelete(2)
             const reporter = interaction.fields.getTextInputValue('ign')
             const server = interaction.fields.getTextInputValue('realm')
             const description = interaction.fields.getTextInputValue('problem')
@@ -112,6 +115,7 @@ module.exports = {
             interaction.reply({embeds: [embed3], components: [row3]})
         }
         if (interaction.customId === 'ingame') {
+            interaction.channel.bulkDelete(2)
             const reporter = interaction.fields.getTextInputValue('ign')
             const server = interaction.fields.getTextInputValue('realm')
             const description = interaction.fields.getTextInputValue('problem')
@@ -142,6 +146,44 @@ module.exports = {
                     .setStyle('SUCCESS'),
                 )
             interaction.reply({embeds: [embed4], components: [row4]})
+        }
+        if (interaction.customId === 'suggest') {
+            const description = interaction.fields.getTextInputValue('problem')
+            const suggestionembed = new Discord.MessageEmbed()
+            .setAuthor({name: `${config.serverName} Suggestion`, iconURL: config.serverIcon})
+            .setDescription(`
+            💡**Suggestion:**
+            > ${description}
+
+            📍**Information**
+            > **Status**: Pending 🟠
+            > **Upvotes**: 0
+            > **Downvotes**: 0
+            `)
+            const row1 = new Discord.MessageActionRow().addComponents(
+                new Discord.MessageButton()
+                .setCustomId('upvote')
+                .setEmoji('🔼')
+                .setLabel('Upvote')
+                .setStyle('SUCCESS'),
+                new Discord.MessageButton()
+                .setCustomId('downvote')
+                .setEmoji('🔽')
+                .setLabel('Downvote')
+                .setStyle('DANGER'),
+                )
+            const msg = await interaction.reply({embeds: [suggestionembed], components: [row1]})
+
+            data = new db({
+                UserID: interaction.member.id,
+                SuggestionID: msg.id,
+                SuggestionTitle: description,
+                Upvotes: 0,
+                Downvotes: 0,
+                Status: "Open",
+                Voters: [{ VoterID: interaction.member.id }]
+            })
+            data.save()
         }
     }
 }
