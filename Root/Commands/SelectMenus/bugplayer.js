@@ -11,84 +11,40 @@ module.exports = {
         interaction.channel.setName(`report-${member.displayName}`)
         interaction.channel.permissionOverwrites.edit(interaction.member.id, { SEND_MESSAGES: true, ADD_REACTIONS: false });
 
-        const channel = interaction.channel
-            let questions = {
-                firstQuestion: "→ What is your IGN?",
-                secondQuestion: "→ Who or what is it you'd like to report?",
-                thirdQuestion: "→ What realm/gamemode is this on?",
-                forthQuestion: "→ Any video proof or screenshot proof?",
-            }
-            const msg = interaction.message
-            interaction.channel.send({embeds: [new Discord.MessageEmbed().setDescription("Please answer the questions so our team can help you quicker.").setColor(Config.serverColor)]})
-            channel.send({embeds: [new Discord.MessageEmbed()
-                .setDescription(questions.firstQuestion)
-                .setColor(Config.serverColor)]})
-                .then(msg => {
-                const filter = m => m.author.id === interaction.member.id
-               channel.awaitMessages({filter, max: 1, time: 1000000
-                }).then(async(collected) => {
-                    const msg1 = collected.first().content
-                    if (msg1 == 'cancel') {
-                        channel.send(":sob: The command has been cancelled.")
-                    }
-                    channel.send({embeds: [new Discord.MessageEmbed().setDescription(questions.secondQuestion).setColor(Config.serverColor)]})
-                    const filter = m => m.author.id === interaction.member.id
-                    channel.awaitMessages({filter, max: 1, time: 1000000
-                    }).then(async(collected) => {
-                        const msg2 = collected.first().content
-                        if (msg2 == 'cancel') {
-                            channel.send(":sob: The command has been cancelled.")
-                        }
-                        channel.send({embeds: [new Discord.MessageEmbed().setDescription(questions.thirdQuestion).setColor(Config.serverColor)]})
-                        const filter = m => m.author.id === interaction.member.id
-                        channel.awaitMessages({filter, max: 1, time: 1000000
-                        }).then(async(collected) => {
-                            const msg3 = collected.first().content
-                            if (msg3 == 'cancel') {
-                                channel.send(":sob: The command has been cancelled.")
-                            }
-                            channel.send({embeds: [new Discord.MessageEmbed().setDescription(questions.forthQuestion).setColor(Config.serverColor)]})
-                            const filter = m => m.author.id === interaction.member.id
-                            channel.awaitMessages({filter, max: 1, time: 1000000
-                            }).then(async(collected) => {
-                                const msg4 = collected.first().content
-                                if (msg4 == 'cancel') {
-                                    channel.send(":sob: The command has been cancelled.")
-                                }
-                            channel.bulkDelete(8, true)
-                            const completed = new Discord.MessageEmbed()
-                            .setColor(Config.serverColor)
-                            .setAuthor({name: "Thank you for making a ticket.", iconURL: Config.serverIcon})
-                            .setThumbnail(Config.serverIcon)
-                            .setDescription(`Thank you for creating a ticket, a member of the support team will be with you shortly.
-                            
-                            **Category:** Bug/Player Report
+        const modal = new Discord.Modal()
+        .setCustomId('bugplayer')
+        .setTitle('Bug/Player report')
 
-                            ${questions.firstQuestion}
-                            → Answer: **${msg1}**
-                            ${questions.secondQuestion}
-                            → Answer: **${msg2}**
-                            ${questions.thirdQuestion}
-                            → Answer: **${msg3}**
-                            ${questions.forthQuestion}
-                            → Answer: **${msg4}**`)
-                            
-                            const row1 = new Discord.MessageActionRow().addComponents(
-                                new Discord.MessageButton()
-                                    .setCustomId('close')
-                                    .setLabel('Close')
-                                    .setStyle('DANGER'),
-                                new Discord.MessageButton()
-                                    .setCustomId('claim')
-                                    .setLabel('Claim')
-                                    .setStyle('SUCCESS'),
-                                )
-                                const msg = interaction.message
-                                interaction.channel.send({embeds: [completed], components: [row1]})
-                        })
-                    })
-                })
-            })
-        })
+        const IGN = new Discord.TextInputComponent()
+        .setCustomId('ign')
+        .setLabel('What is your IGN? (In-game name)')
+        .setStyle('SHORT')
+        const REALM = new Discord.TextInputComponent()
+        .setCustomId('realm')
+        .setLabel('What realm/gamemode is this related to?')
+        .setStyle('SHORT')
+        const REPORTER = new Discord.TextInputComponent()
+        .setCustomId('reporter')
+        .setLabel('Who is it youre reporting?')
+        .setStyle('SHORT')
+        const PROBLEM = new Discord.TextInputComponent()
+        .setCustomId('problem')
+        .setLabel('Please explain the situation')
+        .setStyle('LONG')
+
+        const firstActionRow = new MessageActionRow().addComponents(IGN);
+		const secondActionRow = new MessageActionRow().addComponents(REALM);
+        const thirdActionRow = new MessageActionRow().addComponents(REPORTER);
+        const forthActionRow = new MessageActionRow().addComponents(PROBLEM);
+		modal.addComponents(firstActionRow, secondActionRow, thirdActionRow, forthActionRow);
+		await interaction.showModal(modal);
+
+        if(!interaction.isModalSubmit()) return
+        const reporter = interaction.fields.getTextInputValue('ign')
+        const server = interaction.fields.getTextInputValue('realm')
+        const player = interaction.fields.getTextInputValue('reporter')
+        const description = interaction.fields.getTextInputValue('problem')
+
+        interaction.channel.send(`${reporter} // ${server} // ${player} // ${description}`)
     }
 }
