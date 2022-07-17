@@ -34,7 +34,7 @@ module.exports = {
 
         const firstActionRow = new Discord.MessageActionRow().addComponents(IGN);
 		const secondActionRow = new Discord.MessageActionRow().addComponents(REALM);
-        const thirdActionRow = new MDiscord.essageActionRow().addComponents(REPORTER);
+        const thirdActionRow = new Discord.MessageActionRow().addComponents(REPORTER);
         const forthActionRow = new Discord.MessageActionRow().addComponents(PROBLEM);
 		modal.addComponents(firstActionRow, secondActionRow, thirdActionRow, forthActionRow);
 		await interaction.showModal(modal);
