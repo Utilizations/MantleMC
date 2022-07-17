@@ -11,7 +11,8 @@ module.exports = {
         else if (interaction.isContextMenu()) loadCommandOptions(client, interaction, client.commands.contextMenus.get(interaction.commandName), true, "ContextMenus")
 
         if (!interaction.isModalSubmit()) return;
-
+        interaction.channel.bulkDelete(2)
+        
         if (interaction.customId === 'bugplayer') {
             const reporter = interaction.fields.getTextInputValue('ign')
             const server = interaction.fields.getTextInputValue('realm')
@@ -44,7 +45,7 @@ module.exports = {
                     .setLabel('Claim')
                     .setStyle('SUCCESS'),
                 )
-            interaction.channel.send({embeds: [embed1], components: [row1]})
+            interaction.reply({embeds: [embed1], components: [row1]})
         }
         if (interaction.customId === 'buycraft') {
             const reporter = interaction.fields.getTextInputValue('ign')
@@ -76,7 +77,7 @@ module.exports = {
                     .setLabel('Claim')
                     .setStyle('SUCCESS'),
                 )
-            interaction.channel.send({embeds: [embed2], components: [row2]})
+            interaction.reply({embeds: [embed2], components: [row2]})
         }
         if (interaction.customId === 'general') {
             const reporter = interaction.fields.getTextInputValue('ign')
@@ -108,7 +109,7 @@ module.exports = {
                     .setLabel('Claim')
                     .setStyle('SUCCESS'),
                 )
-            interaction.channel.send({embeds: [embed3], components: [row3]})
+            interaction.reply({embeds: [embed3], components: [row3]})
         }
         if (interaction.customId === 'ingame') {
             const reporter = interaction.fields.getTextInputValue('ign')
@@ -140,7 +141,7 @@ module.exports = {
                     .setLabel('Claim')
                     .setStyle('SUCCESS'),
                 )
-            interaction.channel.send({embeds: [embed4], components: [row4]})
+            interaction.reply({embeds: [embed4], components: [row4]})
         }
     }
 }

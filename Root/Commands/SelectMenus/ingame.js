@@ -5,7 +5,6 @@ module.exports = {
     name: "ingame",
     run: async(client, interaction, container) => {
         const { guild, member} = interaction;
-        interaction.channel.bulkDelete(2)
 
 
         interaction.channel.setName(`ingame-${member.displayName}`)
