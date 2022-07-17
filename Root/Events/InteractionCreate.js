@@ -175,13 +175,13 @@ module.exports = {
             const msg = await interaction.reply({embeds: [suggestionembed], components: [row1]})
 
             data = new db({
-                UserID: interaction.member.id,
+                UserID: interaction.member,
                 SuggestionID: msg.id,
                 SuggestionTitle: description,
                 Upvotes: 0,
                 Downvotes: 0,
                 Status: "Open",
-                Voters: [{ VoterID: interaction.member.id }]
+                Voters: [{ VoterID: interaction.member }]
             })
             data.save()
         }
