@@ -1,3 +1,5 @@
+const Discord = require("discord.js")
+
 module.exports = {
     name: "interactionCreate",
     run: async(interaction, client) => {
@@ -15,7 +17,129 @@ module.exports = {
             const player = interaction.fields.getTextInputValue('reporter')
             const description = interaction.fields.getTextInputValue('problem')
 
-            interaction.channel.send(`${reporter} // ${server} // ${player} // ${description}`)
+            const embed1 = new Discord.MessageEmbed()
+            .setAuthor({name: `New ticket created.`, iconURL: config.serverIcon})
+            .setDescription(`
+            :wave: Thank you ${interaction.member} for making a ticket.
+
+            Category:
+            ➥ **Player/Bug Report**
+
+            Here are the responses;
+            ➥ **IGN**: ${reporter}
+            ➥ **Realm**: ${server}
+            ➥ **Reporting**: ${player}
+            ➥ **Summary**: ${description}
+
+            *A member of staff will review this ticket when they get the chance, please be patient.*
+            `)
+            const row1 = new Discord.MessageActionRow().addComponents(
+                new Discord.MessageButton()
+                    .setCustomId('close')
+                    .setLabel('Close')
+                    .setStyle('DANGER'),
+                new Discord.MessageButton()
+                    .setCustomId('claim')
+                    .setLabel('Claim')
+                    .setStyle('SUCCESS'),
+                )
+            interaction.channel.send({embeds: [embed1], components: [row1]})
+        }
+        if (interaction.customId === 'buycraft') {
+            const reporter = interaction.fields.getTextInputValue('ign')
+            const server = interaction.fields.getTextInputValue('realm')
+            const description = interaction.fields.getTextInputValue('problem')
+
+            const embed2 = new Discord.MessageEmbed()
+            .setAuthor({name: `New ticket created.`, iconURL: config.serverIcon})
+            .setDescription(`
+            :wave: Thank you ${interaction.member} for making a ticket.
+
+            Category:
+            ➥ **Buycraft Support**
+
+            Here are the responses;
+            ➥ **IGN**: ${reporter}
+            ➥ **Transaction ID**: ${server}
+            ➥ **Breif Description**: ${description}
+
+            *A member of staff will review this ticket when they get the chance, please be patient.*
+            `)
+            const row2 = new Discord.MessageActionRow().addComponents(
+                new Discord.MessageButton()
+                    .setCustomId('close')
+                    .setLabel('Close')
+                    .setStyle('DANGER'),
+                new Discord.MessageButton()
+                    .setCustomId('claim')
+                    .setLabel('Claim')
+                    .setStyle('SUCCESS'),
+                )
+            interaction.channel.send({embeds: [embed2], components: [row2]})
+        }
+        if (interaction.customId === 'general') {
+            const reporter = interaction.fields.getTextInputValue('ign')
+            const server = interaction.fields.getTextInputValue('realm')
+            const description = interaction.fields.getTextInputValue('problem')
+
+            const embed3 = new Discord.MessageEmbed()
+            .setAuthor({name: `New ticket created.`, iconURL: config.serverIcon})
+            .setDescription(`
+            :wave: Thank you ${interaction.member} for making a ticket.
+
+            Category:
+            ➥ **General Support**
+
+            Here are the responses;
+            ➥ **IGN**: ${reporter}
+            ➥ **Realm**: ${server}
+            ➥ **Breif Description**: ${description}
+
+            *A member of staff will review this ticket when they get the chance, please be patient.*
+            `)
+            const row3 = new Discord.MessageActionRow().addComponents(
+                new Discord.MessageButton()
+                    .setCustomId('close')
+                    .setLabel('Close')
+                    .setStyle('DANGER'),
+                new Discord.MessageButton()
+                    .setCustomId('claim')
+                    .setLabel('Claim')
+                    .setStyle('SUCCESS'),
+                )
+            interaction.channel.send({embeds: [embed3], components: [row3]})
+        }
+        if (interaction.customId === 'ingame') {
+            const reporter = interaction.fields.getTextInputValue('ign')
+            const server = interaction.fields.getTextInputValue('realm')
+            const description = interaction.fields.getTextInputValue('problem')
+
+            const embed4 = new Discord.MessageEmbed()
+            .setAuthor({name: `New ticket created.`, iconURL: config.serverIcon})
+            .setDescription(`
+            :wave: Thank you ${interaction.member} for making a ticket.
+
+            Category:
+            ➥ **In-Game Support**
+
+            Here are the responses;
+            ➥ **IGN**: ${reporter}
+            ➥ **Realm**: ${server}
+            ➥ **Breif Description**: ${description}
+
+            *A member of staff will review this ticket when they get the chance, please be patient.*
+            `)
+            const row4 = new Discord.MessageActionRow().addComponents(
+                new Discord.MessageButton()
+                    .setCustomId('close')
+                    .setLabel('Close')
+                    .setStyle('DANGER'),
+                new Discord.MessageButton()
+                    .setCustomId('claim')
+                    .setLabel('Claim')
+                    .setStyle('SUCCESS'),
+                )
+            interaction.channel.send({embeds: [embed4], components: [row4]})
         }
     }
 }
