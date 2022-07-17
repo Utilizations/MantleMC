@@ -32,10 +32,10 @@ module.exports = {
         .setLabel('Please explain the situation')
         .setStyle('LONG')
 
-        const firstActionRow = new MessageActionRow().addComponents(IGN);
-		const secondActionRow = new MessageActionRow().addComponents(REALM);
-        const thirdActionRow = new MessageActionRow().addComponents(REPORTER);
-        const forthActionRow = new MessageActionRow().addComponents(PROBLEM);
+        const firstActionRow = new Discord.MessageActionRow().addComponents(IGN);
+		const secondActionRow = new Discord.MessageActionRow().addComponents(REALM);
+        const thirdActionRow = new MDiscord.essageActionRow().addComponents(REPORTER);
+        const forthActionRow = new Discord.MessageActionRow().addComponents(PROBLEM);
 		modal.addComponents(firstActionRow, secondActionRow, thirdActionRow, forthActionRow);
 		await interaction.showModal(modal);
 
