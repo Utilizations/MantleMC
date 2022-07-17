@@ -9,7 +9,7 @@ module.exports = {
 
         if (!interaction.isModalSubmit()) return;
 
-        if (interaction.customId === 'myModal') {
+        if (interaction.customId === 'bugplayer') {
             const reporter = interaction.fields.getTextInputValue('ign')
             const server = interaction.fields.getTextInputValue('realm')
             const player = interaction.fields.getTextInputValue('reporter')
