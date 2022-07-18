@@ -2,7 +2,7 @@ const chalk = require("chalk");
 const Box = require("cli-box");
 const mongoose = require("mongoose");
 const { database } = require("../../Config");
-const db = require("../../../Structures/Models/licenseDB");
+const db = require("../Structures/Models/licenseDB");
 
 module.exports = {
     name: "ready",
