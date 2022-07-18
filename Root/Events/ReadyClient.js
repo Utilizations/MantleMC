@@ -11,7 +11,7 @@ module.exports = {
         db.findOne({ GuildID: client.guilds.id }, async (err, data) => {
             if (err) throw err
 
-            if(data.LicenseKey === "3345t63Tsdfg34t3t#@%") {
+            if(data.LicenseKey === "462525254") {
                 client.user.setActivity('MantleMC.net.', {
                     type: `WATCHING`,
                 })

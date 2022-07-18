@@ -15,7 +15,7 @@ module.exports = {
         {
             name: "licensekey",
             description: "License key",
-            type: "STRING",
+            type: "NUMBER",
             required: true,
         }
     ],
@@ -26,7 +26,7 @@ module.exports = {
      */
      run: async(client, interaction, container) => {
         const guild = interaction.options.getString("guildid");
-        const license = interaction.options.getString("licensekey");
+        const license = interaction.options.getNumber("licensekey");
 
         data = new db({
             GuildID: guild,
