@@ -1,6 +1,6 @@
 const { Client, CommandInteraction, MessageEmbed } = require("discord.js");
 const config = require("../../../../Config");
-const db =require("../../../Structures/Models/licenseDB")
+const db = require("../../../Structures/Models/licenseDB")
 
 module.exports = {
     name: "license",
