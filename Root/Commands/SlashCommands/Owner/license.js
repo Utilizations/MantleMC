@@ -3,11 +3,11 @@ const config = require("../../../../Config");
 const db = require("../../../Structures/Models/licenseDB")
 
 module.exports = {
-    name: "register",
+    name: "license",
     description: "register a License",
     options: [
         {
-            name: "guildID",
+            name: "guildid",
             description: "Guild ID",
             type: "STRING",
             required: true,
@@ -25,7 +25,7 @@ module.exports = {
      * @param {CommandInteraction} interaction 
      */
      run: async(client, interaction, container) => {
-        const guild = interaction.options.getString("guildID");
+        const guild = interaction.options.getString("guildid");
         const license = interaction.options.getString("licensekey");
 
         data = new db({
