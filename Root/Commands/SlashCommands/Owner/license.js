@@ -3,7 +3,7 @@ const config = require("../../../../Config");
 const db = require("../../../Structures/Models/licenseDB")
 
 module.exports = {
-    name: "license",
+    name: "register",
     description: "register a License",
     options: [
         {
@@ -29,7 +29,7 @@ module.exports = {
         const license = interaction.options.getString("licensekey");
 
         data = new db({
-            UserID: guild,
+            GuildID: guild,
             LicenseKey: license
         })
         data.save()
